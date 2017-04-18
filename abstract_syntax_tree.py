@@ -1,4 +1,5 @@
 #/usr/bin/python3
+
 from abc import ABC, abstractmethod
 
 class OPERATOR:
@@ -6,3 +7,8 @@ class OPERATOR:
     MINUS = "-"
     DIV = "/"
     MUL = "*"
+
+class Expression(ABC):
+    @abstractmethod
+    def analyze(self):
+        pass
