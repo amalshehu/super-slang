@@ -1,12 +1,14 @@
 #/usr/bin/python3
 
+#Imports
 from abc import ABC, abstractmethod
 
-class OPERATOR:
+class Operator(object):
+    "' Declaration of Operators'"
     PLUS = "+"
     MINUS = "-"
     DIV = "/"
-    MUL = "*"
+    MULT = "*"
 
 class Expression(ABC):
     @abstractmethod
