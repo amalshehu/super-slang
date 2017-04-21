@@ -22,4 +22,15 @@ class NumericConstant(Expression):
         return self.numeric
     def __str__(self):
         return self.numeric
-
+class BinaryExpression(Expression):
+    def __init__(self, num1, num2, op):
+        super (BinaryExpression, self).__init__(input1, input2, operator))
+    def process(self):
+        switcher = {
+            self.operator = Operator.PLUS : input1.process() + input2.process(),
+            self.operator = Operator.MINUS : input1.process() + input2.process(),
+            self.operator = Operator.MULT : input1.process() + input2.process(),
+            self.operator = Operator.DIV : input1.process() + input2.process()
+        }
+        return switcher.get(self, "None")
+        
