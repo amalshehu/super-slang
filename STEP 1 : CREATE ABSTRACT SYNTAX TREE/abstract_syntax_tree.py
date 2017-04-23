@@ -33,4 +33,17 @@ class BinaryExpression(Expression):
             self.operator = Operator.DIV : input1.process() + input2.process()
         }
         return switcher.get(self, "None")
-        
+    def __str__(self):
+        return "BinaryExpression(%s %s %s)" % (self.input1, self.input2, self.operator)
+
+class UnaryExpression(Expression):
+    def __init__(self, i, op):
+        self.input = i
+        self.operator = op
+    def process(self):
+        if self.operator == Operator.PLUS:
+            return self.i.process()
+        elif self.operator == Operator.MINUS:
+            return -self.i.process()
+        else:
+            None
