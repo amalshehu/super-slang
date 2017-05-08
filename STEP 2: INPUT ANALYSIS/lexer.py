@@ -1,0 +1,11 @@
+class Token:
+    ILLEGAL_TOKEN = -1
+    TOKEN_PLUS = 1
+    TOKEN_MULT = 2
+    TOKEN_DIV = 3
+    TOKEN_SUB = 4
+    TOKEN_OPEN_PAREN = 5
+    TOKEN_CLOSE_PAREN = 6
+    TOKEN_DOUBLE = 7
+    TOKEN_NULL = 8
+
