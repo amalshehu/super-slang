@@ -52,5 +52,7 @@ class UnaryExpression(Expression):
             None
 if __name__ == "__main__":
     # Abstract Syntax Tree(AST) for 5*4
-    exp = BinaryExpression(NumericConstant(5), NumericConstant(10), Operator.PLUS)
+    exp = BinaryExpression(NumericConstant(5), NumericConstant(5), Operator.MULT)
     print(exp.process())
+    exp2 = BinaryExpression(NumericConstant(5), NumericConstant(5), Operator.PLUS)
+    print(exp2.process())
