@@ -21,3 +21,5 @@ class Lexer(object):
         token = Token.ILLEGAL_TOKEN
         while self.index < self.length and (self.IExpression[self.index] == '' or self.IExpression[self.index] == '\t'):
             self.index += 1
+        if self.index == self.length:
+            return Token.TOKEN_NULL
