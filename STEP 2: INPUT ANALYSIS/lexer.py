@@ -23,3 +23,13 @@ class Lexer(object):
             self.index += 1
         if self.index == self.length:
             return Token.TOKEN_NULL
+        t = self.IExpression[self.index]
+        switchCase = {
+            '+' : token = Token.TOKEN_PLUS, self.index += 1,
+            '-' : token = Token.TOKEN_SUB, self.index += 1,
+            '*' : token = Token.TOKEN_MULT, self.index += 1,
+            '/' : token = Token.TOKEN_DIV, self.index += 1,
+            '(' : token = Token.TOKEN_OPEN_PAREN, self.index += 1,
+            ')' : token = Token.TOKEN_CLOSE_PAREN, self.index += 1
+        }
+        return switchCase.get(t)
