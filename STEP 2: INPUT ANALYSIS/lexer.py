@@ -47,3 +47,8 @@ class Lexer(object):
         if token is not None:
             self.index += 1
             return token
+
+
+@classmethod
+def get_number(self):
+    return self.number
