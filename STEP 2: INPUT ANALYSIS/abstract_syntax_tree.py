@@ -3,6 +3,7 @@
 from abc import ABCMeta, abstractmethod
 import operator
 
+
 class Operator(object):
     "' Declaration of Operators'"
     PLUS = "+"
