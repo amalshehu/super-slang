@@ -9,6 +9,7 @@ class Token(object):
     TOKEN_DOUBLE = 7
     TOKEN_NULL = 8
 
+
 class Lexer(object):
     @classmethod
     def __init__(self, Expression):
@@ -16,6 +17,7 @@ class Lexer(object):
         self.length = len(Expression)
         self.index = 0
         self.number = None
+
     @staticmethod
     def get_token(self):
         token = Token.ILLEGAL_TOKEN
@@ -25,11 +27,23 @@ class Lexer(object):
             return Token.TOKEN_NULL
         t = self.IExpression[self.index]
         switchCase = {
-            '+' : token = Token.TOKEN_PLUS, self.index += 1,
-            '-' : token = Token.TOKEN_SUB, self.index += 1,
-            '*' : token = Token.TOKEN_MULT, self.index += 1,
-            '/' : token = Token.TOKEN_DIV, self.index += 1,
-            '(' : token = Token.TOKEN_OPEN_PAREN, self.index += 1,
-            ')' : token = Token.TOKEN_CLOSE_PAREN, self.index += 1
+            '+': Token.TOKEN_PLUS,
+            '-': Token.TOKEN_SUB,
+            '*': Token.TOKEN_MULT,
+            '/': Token.TOKEN_DIV,
+            '(': Token.TOKEN_OPEN_PAREN,
+            ')': Token.TOKEN_CLOSE_PAREN
         }
-        return switchCase.get(t)
+        if isinstance(t, int):
+            string = ""
+            while self.index < self.length and self.IExpression[self.index].isdigit():
+                string += self.IExpression[self.index]
+                self.index += 1
+            self.number = int(string)
+            token = Token.TOKEN_DOUBLE
+        else:
+            raise Exception("Error Occured While Analyzing Token")
+        token = switchCase.get(t)
+        if token is not None:
+            self.index += 1
+            return token
